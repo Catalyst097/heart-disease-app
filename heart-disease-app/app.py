@@ -1,9 +1,13 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import streamlit as st
+import pandas as pd
+import joblib
+import os
 
-pipeline = joblib.load("model.pkl")
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+pipeline = joblib.load(os.path.join(BASE_DIR, "model.pkl"))
 st.title("Heart Disease Risk Predictor")
 st.write("Enter patient details to predict heart disease risk.")
 st.caption("⚠️ Educational demo only — not medical advice.")
